@@ -1,10 +1,9 @@
-# Use uma imagem base do MySQL
 FROM mysql:latest
 
-ENV MYSQL_ROOT_PASSWORD=senha_root
-ENV MYSQL_DATABASE=nome_do_banco
-ENV MYSQL_USER=nome_do_usuario
-ENV MYSQL_PASSWORD=senha_do_usuario
+ENV MYSQL_ROOT_PASSWORD=root123
+ENV MYSQL_DATABASE=tech_product
+ENV MYSQL_USER=matheus
+ENV MYSQL_PASSWORD=teste123
 
 EXPOSE 3306
 

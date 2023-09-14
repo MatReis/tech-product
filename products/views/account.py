@@ -12,10 +12,8 @@ def login_account(request):
             if user is not None:
                 login(request, user)
                 return redirect('/')
-            else:
-                print("erro: não autenticou")
         
-        print("form erro: ", form.errors)
+        print(form.errors)
     else:
         form = AuthenticationForm()
     return render(request, 'products/login.html', {'form': form})

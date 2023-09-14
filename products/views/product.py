@@ -5,7 +5,6 @@ from products.forms import ProductForm
 
 @login_required
 def list_products(request):
-    print('request: ',request.user.is_authenticated , "\n\n")
     products = Product.objects.all()
     return render(request, 'products/index.html', {'products': products} )
 
@@ -36,9 +35,9 @@ def update_product(request, id):
                 model = form.instance
                 return redirect('index')  
             except Exception as e: 
-                print("Erro: ", str(e))
+                print(str(e))
         else: 
-            print("form não é valido: ", form.errors)    
+            print(form.errors)    
 
     return render(request, 'products/product_form.html', {'product_action': "Atualizar", 'product': product})
 

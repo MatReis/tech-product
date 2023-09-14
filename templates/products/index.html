@@ -7,43 +7,38 @@
 {% block content %}
     <div class="container mt-5">
         <h2>Lista de produtos</h2>
-        <div>
-            {% if products %}
-                <div class="row" >
-                    <button type="button" class="btn btn-success" href="{% url 'cadastrar-produto' %}">Adicionar</button>
-                </div>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Fornecedor</th>
-                            <th scope="col">Valor</th>
-                            <th scope="col">Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for product in products %}
-                        <tr>
-                            <td>{{ product.id }}</td>
-                            <td>{{ product.name }}</td>
-                            <td>{{ product.provider }}</td>
-                            <td>{{ product.value }}</td>
-                            <td>
-                                <a type="button" class="btn btn-warning" href="/produto/atualizar/{{ product.id }}">Atualizar</a>
-                                <a type="button" class="btn btn-danger" href="/produto/deletar/{{ product.id }}">Deletar</a>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            {% else %}
-                <p>Sem produtos cadastrados</p>
-                <div class="row" >
-                    <a type="button" class="btn btn-success" href="{% url 'cadastrar-produto' %}">Adicionar</a>
-                </div>
-            {% endif %}
-        </div>
+        {% if products %}
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Fornecedor</th>
+                        <th scope="col">Valor</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                    <tr>
+                        <th>{{ product.id }}</th>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.provider }}</td>
+                        <td>{{ product.value }}</td>
+                        <td>
+                            <a type="button" class="btn btn-warning" href="/produto/atualizar/{{ product.id }}">Atualizar</a>
+                            <a type="button" class="btn btn-danger" href="/produto/deletar/{{ product.id }}">Deletar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div class="row" >
+                <h3>Sem produtos cadastrados</h3>
+            </div>
+        {% endif %}
+        
     </div>
 
 {% endblock %}
