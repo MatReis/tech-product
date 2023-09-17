@@ -9,5 +9,4 @@ urlpatterns = [
     path('produto/deletar/<int:id>', delete_product, name="deletar-produto"),
     path('login/', login_account, name='login'),
     path('logout/', logout_account, name='logout'),
-
 ]

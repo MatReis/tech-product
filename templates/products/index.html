@@ -20,16 +20,16 @@
                 </thead>
                 <tbody>
                     {% for product in products %}
-                    <tr>
-                        <th>{{ product.id }}</th>
-                        <td>{{ product.name }}</td>
-                        <td>{{ product.provider }}</td>
-                        <td>{{ product.value }}</td>
-                        <td>
-                            <a type="button" class="btn btn-warning" href="/produto/atualizar/{{ product.id }}">Atualizar</a>
-                            <a type="button" class="btn btn-danger" href="/produto/deletar/{{ product.id }}">Deletar</a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <th>{{ product.id }}</th>
+                            <td>{{ product.name }}</td>
+                            <td>{{ product.provider }}</td>
+                            <td>R$ {{ product.value }}</td>
+                            <td>
+                                <a type="button" class="btn btn-warning" href="/produto/atualizar/{{ product.id }}">Atualizar</a>
+                                <a type="button" class="btn btn-danger" onClick="return deletar({{ product.id }});">Deletar</a>
+                            </td>
+                        </tr>
                     {% endfor %}
                 </tbody>
             </table>
@@ -41,4 +41,9 @@
         
     </div>
 
+{% endblock %}
+
+{% load static %}
+{% block script %}
+    <script src="{% static '/js/product.js' %}"></script>
 {% endblock %}
